@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/RegisterPage.css";
+import axios from "axios";  // Importa Axios
 
 export default function RegisterPage() {
   const [email, setEmail] = useState("");
@@ -17,7 +18,6 @@ export default function RegisterPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Crear objeto con los datos en el formato deseado
     const userData = {
       nombre: nombre,
       primerApellido: primerApellido,
@@ -31,15 +31,20 @@ export default function RegisterPage() {
     };
     
     console.log("User Data:", userData);
-    
-    // Aquí puedes hacer el envío del JSON al backend, por ejemplo con fetch o axios.
-    // fetch('/api/registro', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(userData)
-    // });
-  };
-
+    axios
+      .post("http://127.0.0.1:8000/usersCreate/", userData,{
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })  
+      .then((response) => {
+        console.log("Respuesta del servidor:", response);
+        navigate("/login");
+      })
+      .catch((error) => {
+        console.error("Hubo un error al enviar los datos:", error);
+      });
+    };
   return (
     <>
       <div className="register-container">
