@@ -1,11 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import "../styles/Dashboard.css";
 
-export default function Dashboard() {
+export default function Dashboard({onLogoutSuccess}) {
   const navigate = useNavigate();
 
   const handleNavigate = (page) => {
     navigate(`/${page}`); 
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    onLogoutSuccess();
+    navigate("/login");
   };
 
   return (
@@ -29,6 +35,12 @@ export default function Dashboard() {
           onClick={() => handleNavigate("materiales")}
         >
           Materiales
+        </button>
+        <button
+          className="dashboard-button"
+          onClick={handleLogout}
+        >
+          Logout
         </button>
       </div>
     </div>

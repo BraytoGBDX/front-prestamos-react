@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/LoginPage.css"; // Asegúrate de que la ruta sea correcta
 import axios from "axios"; // Importamos Axios
 
-export default function LoginPage() {
+export default function LoginPage({onLoginSuccess}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -30,6 +30,7 @@ export default function LoginPage() {
         if (response.data.access_token) {
           console.log("Login exitoso, token recibido:", response.data.access_token);
           localStorage.setItem("token", response.data.access_token);
+          onLoginSuccess(response.data.access_token); // Pasamos el token al componente App
           navigate("/dashboard");
         } else {
           console.error("Credenciales incorrectas o error en el login");
