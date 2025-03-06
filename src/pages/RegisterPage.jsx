@@ -94,7 +94,11 @@ export default function RegisterPage() {
             >
               <option value="">-- Selecciona tu tipo de usuario --</option>
               <option value="Alumno">Alumno</option>
-              <option value="Usuario">Usuario</option>
+              <option value="Docente">Docente</option>
+              <option value="Secretaria">Secretaria</option>
+              <option value="Laboratorista">Laboratorista</option>
+              <option value="Directivo">Directivo</option>
+              <option value="Administrativo">Administrativo</option>
             </select>
             <input
               type="email"

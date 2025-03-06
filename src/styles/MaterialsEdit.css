@@ -1,0 +1,87 @@
+/* Contenedor principal del formulario de edición de material */
+.edit-material-container {
+    width: 80%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Título del formulario */
+  .edit-material-container h2 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Estilos del formulario */
+  .edit-material-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  /* Estilos para cada campo del formulario */
+  .edit-material-form .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Etiquetas */
+  .edit-material-form label {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #333;
+  }
+  
+  /* Campos de entrada (input) */
+  .edit-material-form input,
+  .edit-material-form select,
+  .edit-material-form textarea {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border 0.3s ease-in-out;
+  }
+  
+  /* Estilo de la caja de texto (textarea) */
+  .edit-material-form textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+  
+  /* Estilo al enfocar un campo de entrada o selección */
+  .edit-material-form input:focus,
+  .edit-material-form select:focus,
+  .edit-material-form textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+  }
+  
+  /* Botón de envío */
+  .submit-button {
+    padding: 12px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Hover del botón */
+  .submit-button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Estilo para errores o campos inválidos */
+  .edit-material-form input:invalid,
+  .edit-material-form select:invalid,
+  .edit-material-form textarea:invalid {
+    border-color: #e74c3c;
+  }
+  

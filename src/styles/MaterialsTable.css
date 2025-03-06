@@ -1,0 +1,64 @@
+.materiales-container {
+    padding: 20px;
+    background-color: #f4f4f9;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.materiales-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.materiales-table th,
+.materiales-table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.materiales-table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.materiales-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.materiales-table tr:hover {
+    background-color: #ddd;
+}
+
+/* Estilos de los botones */
+button {
+    padding: 8px 15px;
+    font-size: 14px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.edit-button:hover {
+    background-color: #45a049;
+}
+
+.delete-button {
+    background-color: #f44336;
+    color: white;
+}
+
+.delete-button:hover {
+    background-color: #e53935;
+}

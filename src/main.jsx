@@ -7,6 +7,12 @@ import RegisterPage from "./pages/RegisterPage.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import UsersTable from "./pages/Users/UsersTable.jsx";
 import UsersEdit from "./pages/Users/UsersEdit.jsx";
+import MaterialsTable from "./pages/materials/MaterialsTable.jsx";
+import MaterialsEdit from "./pages/materials/MaterialsEdit.jsx";
+import MaterialsCreate from "./pages/materials/MaterialsCreate.jsx";
+import PrestamosCreate from "./pages/Prestamos/PrestamosCreate.jsx";
+import PrestamosEdit from "./pages/Prestamos/PrestamosEdit.jsx";
+import PrestamosTable from "./pages/Prestamos/PrestamosTable.jsx";
 
 const App = () => {
   const [token, setToken] = useState(null);
@@ -44,6 +50,12 @@ const App = () => {
               <Route path="/dashboard" element={<Dashboard onLogoutSuccess={handleLogoutSuccess} />} />
               <Route path="/users" element={<UsersTable />} />
               <Route path="/usersEdit/:id" element={<UsersEdit />} />
+              <Route path="/materials" element={<MaterialsTable />} />
+              <Route path="/materialsEdit/:id" element={<MaterialsEdit />} />
+              <Route path="/materialsCreate" element={<MaterialsCreate />} />
+              <Route path="/prestamos" element={<PrestamosTable />} />
+              <Route path="/prestamosEdit/:id" element={<PrestamosEdit />} />
+              <Route path="/prestamosCreate" element={<PrestamosCreate />} />
               {/* Redirigir cualquier ruta no encontrada al dashboard si ya hay token */}
               <Route path="*" element={<Navigate to="/dashboard" />} />
             </>

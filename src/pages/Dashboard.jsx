@@ -32,7 +32,7 @@ export default function Dashboard({onLogoutSuccess}) {
         </button>
         <button
           className="dashboard-button"
-          onClick={() => handleNavigate("materiales")}
+          onClick={() => handleNavigate("materials")}
         >
           Materiales
         </button>
