@@ -25,15 +25,13 @@ export default function PrestamosTable() {
 
   const handleEliminar = (id) => {
     axios
-      .delete(`http://127.0.0.1:8000/prestamosDelete/${id}`, {
+      .delete(`http://127.0.0.1:8000/prestamosDelete/${id}`,{
         headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
+            Authorization: `Bearer ${token}`,
+          },
+      }) 
       .then(() => {
-        setPrestamos((prevPrestamos) =>
-          prevPrestamos.filter((prestamo) => prestamo.id !== id)
-        );
+        setPrestamos(prestamos.filter((prestamo) => prestamo.id !== id));
       })
       .catch((error) => {
         console.error("Hubo un error al eliminar el préstamo:", error);

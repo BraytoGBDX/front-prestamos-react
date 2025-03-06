@@ -10,7 +10,7 @@ export default function PrestamosCreate() {
     id_usuario: "",
     fecha_prestamo: "",
     fecha_devolucion: "",
-    estado_prestamo: "",
+    estado_prestamo: "Activo",
   });
 
   const [usuarios, setUsuarios] = useState([]);

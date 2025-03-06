@@ -30,11 +30,10 @@ export default function UsersTable() {
     axios
       .delete(`http://127.0.0.1:8000/usersDelete/${id}`,{
         headers: {
-            Authorization: `Bearer ${token}`,  // Agregar el token en los encabezados
+            Authorization: `Bearer ${token}`,
           },
       }) 
       .then(() => {
-        // Filtrar el usuario eliminado de la lista
         setUsuarios(usuarios.filter((usuario) => usuario.id !== id));
       })
       .catch((error) => {
