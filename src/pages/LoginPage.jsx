@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/LoginPage.css"; // Asegúrate de que la ruta sea correcta
+import axios from "axios"; // Importamos Axios
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -9,7 +10,34 @@ export default function LoginPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Email:", email, "Password:", password);
+    
+    // Crear objeto con los datos de login
+    const loginData = {
+      correoElectronico: email,
+      contrasena: password,
+    };
+
+    console.log("Login Data:", loginData);
+
+    // Enviar los datos de login al backend usando axios
+    axios
+      .post("http://127.0.0.1:8000/users/login", loginData, {
+        headers: {
+          "Content-Type": "application/json", // Indicamos que enviamos un JSON
+        },
+      })
+      .then((response) => {
+        if (response.data.access_token) {
+          console.log("Login exitoso, token recibido:", response.data.access_token);
+          localStorage.setItem("token", response.data.token);
+          navigate("/dashboard");
+        } else {
+          console.error("Credenciales incorrectas o error en el login");
+        }
+      })
+      .catch((error) => {
+        console.error("Hubo un error al enviar los datos:", error);
+      });
   };
 
   return (
@@ -35,15 +63,15 @@ export default function LoginPage() {
               required
             />
             <button type="submit" className="login-button">
-              Registrarme
+              Entrar
             </button>
           </form>
           <p className="login-register-text">
-            ¿No tienes cuenta? 
+            ¿No tienes cuenta?{" "}
             <span
               className="login-register-link"
               onClick={() => navigate("/register")}
-            > 
+            >
               Regístrate
             </span>
           </p>
