@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom";
-import "../styles/Dashboard.css"; // Estilo para el Dashboard
+import "../styles/Dashboard.css";
 
 export default function Dashboard() {
   const navigate = useNavigate();
 
   const handleNavigate = (page) => {
-    navigate(`/${page}`); // Redirige a la página correspondiente
+    navigate(`/${page}`); 
   };
 
   return (
@@ -14,7 +14,7 @@ export default function Dashboard() {
       <div className="dashboard-buttons">
         <button
           className="dashboard-button"
-          onClick={() => handleNavigate("usuarios")}
+          onClick={() => handleNavigate("users")}
         >
           Usuarios
         </button>

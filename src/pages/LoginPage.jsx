@@ -29,7 +29,7 @@ export default function LoginPage() {
       .then((response) => {
         if (response.data.access_token) {
           console.log("Login exitoso, token recibido:", response.data.access_token);
-          localStorage.setItem("token", response.data.token);
+          localStorage.setItem("token", response.data.access_token);
           navigate("/dashboard");
         } else {
           console.error("Credenciales incorrectas o error en el login");
